@@ -47,6 +47,8 @@ if (isset($_GET["username"])) {
 
             array_push($response["usuario"], $usuario);
 
+            echo json_encode($response);
+
             // echoing JSON response
             echo json_encode($response);
         } else {
@@ -64,13 +66,17 @@ if (isset($_GET["username"])) {
 
         // echo no users JSON
         echo json_encode($response);
+
     }
 } else {
     // required field is missing
     $response["success"] = 0;
     $response["message"] = "Required field(s) is missing";
 
+
     // echoing JSON response
     echo json_encode($response);
 }
+
+    echo json_encode($usuario);
 ?>

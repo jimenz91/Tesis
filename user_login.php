@@ -18,7 +18,7 @@ $db = new DB_CONNECT();
 // check for post data
 if (isset($_POST["usuario"])&&isset($_POST["contrasena"])) {
   $user = $_POST['usuario'];
-  $password = $_POST['contrasena'];
+  $password = md5($_POST['contrasena']);
 
     // get a product from products table
     $result = mysql_query("SELECT *FROM usuario WHERE user = '$user' AND password = '$password'");

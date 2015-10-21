@@ -17,7 +17,7 @@ if (isset($_POST['nombre']) && isset($_POST['apellido']) && isset($_POST['correo
     $apellido = $_POST['apellido'];
     $correo = $_POST['correo'];
 	$user = $_POST['user'];
-	$password = $_POST['password'];
+	$password = md5($_POST['password']);
 	$carrera_id = $_POST['carrera_id'];
 
     // include db connect class

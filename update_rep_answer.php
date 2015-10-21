@@ -10,19 +10,19 @@ require_once __DIR__ . '/db_connect.php';
 $db = new DB_CONNECT();
 
 
-if(isset($_POST["reputation"])&&isset($_POST["qid"])&&isset($_POST["uid"])){
-    $reputation = $_POST["reputation"];
+if(isset($_POST["reputation"])&&isset($_POST["aid"])&&isset($_POST["uid"])){
+	$reputation = $_POST["reputation"];
     $username = $_POST["uid"];
-    $aid = $_POST["qid"];
-    
-    if($reputation=="up"){
-        $result = mysql_query("UPDATE pregunta SET reputacion = reputacion+1 WHERE id = '$qid'") or die(mysql_error());
+	$aid = $_POST["aid"];
+	
+	if($reputation=="up"){
+		$result = mysql_query("UPDATE respuesta SET reputacion = reputacion+1 WHERE id = '$aid'") or die(mysql_error());
         $message = 'Reputación +1';
-    }else{
-        $result = mysql_query("UPDATE pregunta SET reputacion = reputacion-1 WHERE id = '$qid'")or die(mysql_error());
+	}else{
+		$result = mysql_query("UPDATE respuesta SET reputacion = reputacion-1 WHERE id = '$aid'")or die(mysql_error());
         $message = 'Reputación -1';
-    }
-        
+	}
+		
 
     // check if row inserted or not
     if (mysql_affected_rows()>0) {
@@ -55,7 +55,7 @@ if(isset($_POST["reputation"])&&isset($_POST["qid"])&&isset($_POST["uid"])){
         // echoing JSON response
         echo json_encode($response);
     }
-    
+	
 }else {
         // failed to insert row
         $response["success"] = 0;

@@ -1,5 +1,5 @@
 <?php
-//error_reporting(0);
+error_reporting(0);
 
 /*
  * Following code will create a new product row
@@ -22,7 +22,7 @@ if (isset($_POST['enunciado']) && isset($_FILES['uploaded_file']) && isset($_POS
     
 
    
-    $enunciado = $_POST['enunciado'];
+    $enunciado = utf8_decode($_POST['enunciado']);
     $tema_id = $_POST['tema_id'];
     $usuario_id = $_POST['usuario_id'];
     $username = $_POST['username'];
